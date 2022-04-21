@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TSVIDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ChiTietDiem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDDiem" Type="int" Nullable="false" />
+          <Property Name="LoaiDiem" Type="nvarchar(max)" />
+          <Property Name="Diem" Type="float" />
+          <Property Name="ThoiGian" Type="date" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="Diem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDSV" Type="int" Nullable="false" />
+          <Property Name="IDHP" Type="int" Nullable="false" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="HocPhan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenHocPhan" Type="nvarchar" MaxLength="50" />
+          <Property Name="IDSV" Type="int" Nullable="false" />
+          <Property Name="SoTinChi" Type="int" />
+          <Property Name="HeSo" Type="int" />
+          <Property Name="Ky" Type="int" />
+          <Property Name="NamHoc" Type="nvarchar" MaxLength="10" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="LichHoc">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDSV" Type="int" />
+          <Property Name="Tuan" Type="nvarchar" MaxLength="20" />
+          <Property Name="Ngay" Type="nvarchar" MaxLength="20" />
+          <Property Name="Thu" Type="nvarchar" MaxLength="20" />
+          <Property Name="Tiet" Type="nvarchar" MaxLength="20" />
+          <Property Name="ThoiGian" Type="nvarchar" MaxLength="20" />
+          <Property Name="IdHP" Type="int" />
+          <Property Name="Phong" Type="nvarchar" MaxLength="20" />
+          <Property Name="GiaoVien" Type="nvarchar" MaxLength="30" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="SinhVien">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="MatKhau" Type="varchar" MaxLength="20" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NgaySinh" Type="varchar" MaxLength="20" />
+          <Property Name="NganhHoc" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lop" Type="varchar" MaxLength="20" />
+          <Property Name="KhoaHoc" Type="varchar" MaxLength="30" />
+          <Property Name="Avatar" Type="ntext" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="TSVIDModelStoreContainer">
+          <EntitySet Name="ChiTietDiem" EntityType="Self.ChiTietDiem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Diem" EntityType="Self.Diem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HocPhan" EntityType="Self.HocPhan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LichHoc" EntityType="Self.LichHoc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SinhVien" EntityType="Self.SinhVien" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TSVIDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ChiTietDiem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDiem" Type="Int32" Nullable="false" />
+          <Property Name="LoaiDiem" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Diem" Type="Double" />
+          <Property Name="ThoiGian" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Diem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDSV" Type="Int32" Nullable="false" />
+          <Property Name="IDHP" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="HocPhan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenHocPhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDSV" Type="Int32" Nullable="false" />
+          <Property Name="SoTinChi" Type="Int32" />
+          <Property Name="HeSo" Type="Int32" />
+          <Property Name="Ky" Type="Int32" />
+          <Property Name="NamHoc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="LichHoc">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDSV" Type="Int32" />
+          <Property Name="Tuan" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Ngay" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Thu" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Tiet" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ThoiGian" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IdHP" Type="Int32" />
+          <Property Name="Phong" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="GiaoVien" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SinhVien">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="MatKhau" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NgaySinh" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NganhHoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lop" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="KhoaHoc" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="DBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ChiTietDiems" EntityType="Self.ChiTietDiem" />
+          <EntitySet Name="Diems" EntityType="Self.Diem" />
+          <EntitySet Name="HocPhans" EntityType="Self.HocPhan" />
+          <EntitySet Name="LichHocs" EntityType="Self.LichHoc" />
+          <EntitySet Name="SinhViens" EntityType="Self.SinhVien" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TSVIDModelStoreContainer" CdmEntityContainer="DBContext">
+          <EntitySetMapping Name="ChiTietDiems">
+            <EntityTypeMapping TypeName="TSVIDModel.ChiTietDiem">
+              <MappingFragment StoreEntitySet="ChiTietDiem">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDDiem" ColumnName="IDDiem" />
+                <ScalarProperty Name="LoaiDiem" ColumnName="LoaiDiem" />
+                <ScalarProperty Name="Diem" ColumnName="Diem" />
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Diems">
+            <EntityTypeMapping TypeName="TSVIDModel.Diem">
+              <MappingFragment StoreEntitySet="Diem">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDSV" ColumnName="IDSV" />
+                <ScalarProperty Name="IDHP" ColumnName="IDHP" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HocPhans">
+            <EntityTypeMapping TypeName="TSVIDModel.HocPhan">
+              <MappingFragment StoreEntitySet="HocPhan">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TenHocPhan" ColumnName="TenHocPhan" />
+                <ScalarProperty Name="IDSV" ColumnName="IDSV" />
+                <ScalarProperty Name="SoTinChi" ColumnName="SoTinChi" />
+                <ScalarProperty Name="HeSo" ColumnName="HeSo" />
+                <ScalarProperty Name="Ky" ColumnName="Ky" />
+                <ScalarProperty Name="NamHoc" ColumnName="NamHoc" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LichHocs">
+            <EntityTypeMapping TypeName="TSVIDModel.LichHoc">
+              <MappingFragment StoreEntitySet="LichHoc">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDSV" ColumnName="IDSV" />
+                <ScalarProperty Name="Tuan" ColumnName="Tuan" />
+                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+                <ScalarProperty Name="Thu" ColumnName="Thu" />
+                <ScalarProperty Name="Tiet" ColumnName="Tiet" />
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+                <ScalarProperty Name="IdHP" ColumnName="IdHP" />
+                <ScalarProperty Name="Phong" ColumnName="Phong" />
+                <ScalarProperty Name="GiaoVien" ColumnName="GiaoVien" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SinhViens">
+            <EntityTypeMapping TypeName="TSVIDModel.SinhVien">
+              <MappingFragment StoreEntitySet="SinhVien">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="NganhHoc" ColumnName="NganhHoc" />
+                <ScalarProperty Name="Lop" ColumnName="Lop" />
+                <ScalarProperty Name="KhoaHoc" ColumnName="KhoaHoc" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

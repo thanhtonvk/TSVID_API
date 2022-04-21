@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TSVIDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ChiTietDiem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDDiem" Type="Int32" Nullable="false" />
+    <Property Name="LoaiDiem" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Diem" Type="Double" />
+    <Property Name="ThoiGian" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Diem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDSV" Type="Int32" Nullable="false" />
+    <Property Name="IDHP" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="HocPhan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenHocPhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IDSV" Type="Int32" Nullable="false" />
+    <Property Name="SoTinChi" Type="Int32" />
+    <Property Name="HeSo" Type="Int32" />
+    <Property Name="Ky" Type="Int32" />
+    <Property Name="NamHoc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="LichHoc">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDSV" Type="Int32" />
+    <Property Name="Tuan" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Ngay" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Thu" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Tiet" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ThoiGian" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IdHP" Type="Int32" />
+    <Property Name="Phong" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="GiaoVien" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SinhVien">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgaySinh" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NganhHoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Lop" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="KhoaHoc" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="DBContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ChiTietDiems" EntityType="Self.ChiTietDiem" />
+    <EntitySet Name="Diems" EntityType="Self.Diem" />
+    <EntitySet Name="HocPhans" EntityType="Self.HocPhan" />
+    <EntitySet Name="LichHocs" EntityType="Self.LichHoc" />
+    <EntitySet Name="SinhViens" EntityType="Self.SinhVien" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TSVIDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ChiTietDiem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDDiem" Type="int" Nullable="false" />
+    <Property Name="LoaiDiem" Type="nvarchar(max)" />
+    <Property Name="Diem" Type="float" />
+    <Property Name="ThoiGian" Type="date" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="Diem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDSV" Type="int" Nullable="false" />
+    <Property Name="IDHP" Type="int" Nullable="false" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="HocPhan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenHocPhan" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDSV" Type="int" Nullable="false" />
+    <Property Name="SoTinChi" Type="int" />
+    <Property Name="HeSo" Type="int" />
+    <Property Name="Ky" Type="int" />
+    <Property Name="NamHoc" Type="nvarchar" MaxLength="10" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="LichHoc">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDSV" Type="int" />
+    <Property Name="Tuan" Type="nvarchar" MaxLength="20" />
+    <Property Name="Ngay" Type="nvarchar" MaxLength="20" />
+    <Property Name="Thu" Type="nvarchar" MaxLength="20" />
+    <Property Name="Tiet" Type="nvarchar" MaxLength="20" />
+    <Property Name="ThoiGian" Type="nvarchar" MaxLength="20" />
+    <Property Name="IdHP" Type="int" />
+    <Property Name="Phong" Type="nvarchar" MaxLength="20" />
+    <Property Name="GiaoVien" Type="nvarchar" MaxLength="30" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="SinhVien">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="MatKhau" Type="varchar" MaxLength="20" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NgaySinh" Type="varchar" MaxLength="20" />
+    <Property Name="NganhHoc" Type="nvarchar" MaxLength="50" />
+    <Property Name="Lop" Type="varchar" MaxLength="20" />
+    <Property Name="KhoaHoc" Type="varchar" MaxLength="30" />
+    <Property Name="Avatar" Type="ntext" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityContainer Name="TSVIDModelStoreContainer">
+    <EntitySet Name="ChiTietDiem" EntityType="Self.ChiTietDiem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diem" EntityType="Self.Diem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HocPhan" EntityType="Self.HocPhan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LichHoc" EntityType="Self.LichHoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SinhVien" EntityType="Self.SinhVien" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

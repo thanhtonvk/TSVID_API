@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSVID_API", "TSVID_API.csproj", "{A62C771C-4961-407E-A8C2-03BBABBD9F75}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A62C771C-4961-407E-A8C2-03BBABBD9F75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A62C771C-4961-407E-A8C2-03BBABBD9F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A62C771C-4961-407E-A8C2-03BBABBD9F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A62C771C-4961-407E-A8C2-03BBABBD9F75}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {14C4BE19-2323-4437-996E-101238B8F393}
+	EndGlobalSection
+EndGlobal
