@@ -56,7 +56,7 @@ exec getBangDiemAll 10119713
 select * from BangDiem
 create table LichHoc(
     ID int identity (1000,1) primary key ,
-      IDSV int,
+    IDSV int,
     Tuan nvarchar(20),
     Ngay nvarchar(20),
     Thu nvarchar(20),
@@ -65,7 +65,6 @@ create table LichHoc(
     IdHP int,
     Phong nvarchar(20),
     GiaoVien nvarchar(30),
-  
     Status int
 )
 go

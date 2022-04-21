@@ -17,6 +17,12 @@ namespace TSVID_API.Controllers.api
         {
             return db.getBangDiem(idSV, ky, nam);
         }
+        [HttpGet]
+        [Route("api/Diems/GetDiemAll")]
+        public IEnumerable<getBangDiemAll_Result> GetBangDiemAll(int idSV)
+        {
+            return db.getBangDiemAll(idSV);
+        }
         [HttpPost]
         [Route("api/Diems/PostDiem")]
         public int PostBangDiem([FromBody] BangDiem bangDiem)
