@@ -14,6 +14,18 @@ namespace TSVID_API.api.Controllers
         {
             return db.HocPhans.Where(x => x.IDSV == idSV);
         }
-        
+
+        [HttpPost]
+        [Route("api/HocPhans/ThemHocPhan")]
+        public int PostHocPhans([FromBody] HocPhan hp)
+        {
+            if(hp != null)
+            {
+                db.HocPhans.Add(hp);
+                return(db.SaveChanges());
+            }
+            return 1;
+        }
+
     }
 }

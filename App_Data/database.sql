@@ -27,22 +27,33 @@ create table HocPhan(
     Status bit
 )
 go
-create table Diem(
+
+create table BangDiem(
     ID int identity (1000,1) primary key ,
     IDSV int not null,
     IDHP int not null,
-    Status bit
-)
-go
-create table ChiTietDiem(
-    ID int identity (1000,1) primary key ,
-    IDDiem int not null,
     LoaiDiem nvarchar(max),
     Diem float,
     ThoiGian date default getdate(),
     Status bit
 )
+alter proc getBangDiem(@IDSV int,@Ky int,@NamHoc nvarchar(10))
+as
+begin
+select hp.ID,hp.TenHocPhan,hp.SoTinChi,hp.HeSo,bd.Diem,hp.Ky,hp.NamHoc from BangDiem bd, HocPhan hp, SinhVien sv
+where hp.ID=bd.IDHP and sv.ID=bd.IDSV and sv.ID=@IDSV and hp.Ky=@Ky and hp.NamHoc=@NamHoc
+end
 go
+exec getBangDiem 10119713,1,'2019-2020'
+create proc getBangDiemAll(@IDSV int)
+as
+begin
+
+select hp.ID,hp.TenHocPhan,hp.SoTinChi,hp.HeSo,bd.Diem,hp.Ky,hp.NamHoc from BangDiem bd, HocPhan hp, SinhVien sv
+where hp.ID=bd.IDHP and sv.ID=bd.IDSV and sv.ID=@IDSV
+end
+exec getBangDiemAll 10119713
+select * from BangDiem
 create table LichHoc(
     ID int identity (1000,1) primary key ,
       IDSV int,

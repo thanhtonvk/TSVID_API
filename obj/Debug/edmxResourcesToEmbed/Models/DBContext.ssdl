@@ -1,23 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="TSVIDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="ChiTietDiem">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IDDiem" Type="int" Nullable="false" />
-    <Property Name="LoaiDiem" Type="nvarchar(max)" />
-    <Property Name="Diem" Type="float" />
-    <Property Name="ThoiGian" Type="date" />
-    <Property Name="Status" Type="bit" />
-  </EntityType>
-  <EntityType Name="Diem">
+  <EntityType Name="BangDiem">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IDSV" Type="int" Nullable="false" />
     <Property Name="IDHP" Type="int" Nullable="false" />
+    <Property Name="LoaiDiem" Type="nvarchar(max)" />
+    <Property Name="Diem" Type="float" />
+    <Property Name="ThoiGian" Type="date" />
     <Property Name="Status" Type="bit" />
   </EntityType>
   <EntityType Name="HocPhan">
@@ -63,9 +55,16 @@
     <Property Name="Avatar" Type="ntext" />
     <Property Name="Status" Type="bit" />
   </EntityType>
+  <Function Name="getBangDiem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDSV" Type="int" Mode="In" />
+    <Parameter Name="Ky" Type="int" Mode="In" />
+    <Parameter Name="NamHoc" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="getBangDiemAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDSV" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="TSVIDModelStoreContainer">
-    <EntitySet Name="ChiTietDiem" EntityType="Self.ChiTietDiem" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Diem" EntityType="Self.Diem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BangDiem" EntityType="Self.BangDiem" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HocPhan" EntityType="Self.HocPhan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LichHoc" EntityType="Self.LichHoc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SinhVien" EntityType="Self.SinhVien" Schema="dbo" store:Type="Tables" />

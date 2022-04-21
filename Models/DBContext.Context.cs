@@ -12,6 +12,8 @@ namespace TSVID_API.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DBContext : DbContext
     {
@@ -25,10 +27,35 @@ namespace TSVID_API.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ChiTietDiem> ChiTietDiems { get; set; }
-        public virtual DbSet<Diem> Diems { get; set; }
         public virtual DbSet<HocPhan> HocPhans { get; set; }
         public virtual DbSet<LichHoc> LichHocs { get; set; }
         public virtual DbSet<SinhVien> SinhViens { get; set; }
+        public virtual DbSet<BangDiem> BangDiems { get; set; }
+    
+        public virtual ObjectResult<getBangDiem_Result> getBangDiem(Nullable<int> iDSV, Nullable<int> ky, string namHoc)
+        {
+            var iDSVParameter = iDSV.HasValue ?
+                new ObjectParameter("IDSV", iDSV) :
+                new ObjectParameter("IDSV", typeof(int));
+    
+            var kyParameter = ky.HasValue ?
+                new ObjectParameter("Ky", ky) :
+                new ObjectParameter("Ky", typeof(int));
+    
+            var namHocParameter = namHoc != null ?
+                new ObjectParameter("NamHoc", namHoc) :
+                new ObjectParameter("NamHoc", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getBangDiem_Result>("getBangDiem", iDSVParameter, kyParameter, namHocParameter);
+        }
+    
+        public virtual ObjectResult<getBangDiemAll_Result> getBangDiemAll(Nullable<int> iDSV)
+        {
+            var iDSVParameter = iDSV.HasValue ?
+                new ObjectParameter("IDSV", iDSV) :
+                new ObjectParameter("IDSV", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getBangDiemAll_Result>("getBangDiemAll", iDSVParameter);
+        }
     }
 }

@@ -10,15 +10,15 @@
 namespace TSVID_API.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class ChiTietDiem
+    public partial class getBangDiem_Result
     {
         public int ID { get; set; }
-        public int IDDiem { get; set; }
-        public string LoaiDiem { get; set; }
+        public string TenHocPhan { get; set; }
+        public Nullable<int> SoTinChi { get; set; }
+        public Nullable<int> HeSo { get; set; }
         public Nullable<double> Diem { get; set; }
-        public Nullable<System.DateTime> ThoiGian { get; set; }
-        public Nullable<bool> Status { get; set; }
+        public Nullable<int> Ky { get; set; }
+        public string NamHoc { get; set; }
     }
 }

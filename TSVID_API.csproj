@@ -169,6 +169,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\api\DiemController.cs" />
     <Compile Include="Controllers\api\HocPhansController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\api\LichHocsController.cs" />
@@ -176,7 +177,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ChiTietDiem.cs">
+    <Compile Include="Models\BangDiem.cs">
       <DependentUpon>DBContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DBContext.Context.cs">
@@ -194,7 +195,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBContext.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Diem.cs">
+    <Compile Include="Models\getBangDiemAll_Result.cs">
+      <DependentUpon>DBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\getBangDiem_Result.cs">
       <DependentUpon>DBContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HocPhan.cs">

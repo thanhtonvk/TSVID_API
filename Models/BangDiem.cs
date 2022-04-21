@@ -12,11 +12,14 @@ namespace TSVID_API.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Diem
+    public partial class BangDiem
     {
         public int ID { get; set; }
         public int IDSV { get; set; }
         public int IDHP { get; set; }
+        public string LoaiDiem { get; set; }
+        public Nullable<double> Diem { get; set; }
+        public Nullable<System.DateTime> ThoiGian { get; set; }
         public Nullable<bool> Status { get; set; }
     }
 }
