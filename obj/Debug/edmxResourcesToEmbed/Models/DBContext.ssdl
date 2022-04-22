@@ -63,6 +63,11 @@
   <Function Name="getBangDiemAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDSV" Type="int" Mode="In" />
   </Function>
+  <Function Name="getlichhoc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tuan" Type="nvarchar" Mode="In" />
+    <Parameter Name="idsv" Type="int" Mode="In" />
+    <Parameter Name="nam" Type="nvarchar" Mode="In" />
+  </Function>
   <EntityContainer Name="TSVIDModelStoreContainer">
     <EntitySet Name="BangDiem" EntityType="Self.BangDiem" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HocPhan" EntityType="Self.HocPhan" Schema="dbo" store:Type="Tables" />

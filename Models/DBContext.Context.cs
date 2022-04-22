@@ -15,10 +15,10 @@ namespace TSVID_API.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class DBContext : DbContext
+    public partial class TSVIDEntities : DbContext
     {
-        public DBContext()
-            : base("name=DBContext")
+        public TSVIDEntities()
+            : base("name=TSVIDEntities")
         {
         }
     
@@ -27,10 +27,10 @@ namespace TSVID_API.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<BangDiem> BangDiems { get; set; }
         public virtual DbSet<HocPhan> HocPhans { get; set; }
         public virtual DbSet<LichHoc> LichHocs { get; set; }
         public virtual DbSet<SinhVien> SinhViens { get; set; }
-        public virtual DbSet<BangDiem> BangDiems { get; set; }
     
         public virtual ObjectResult<getBangDiem_Result> getBangDiem(Nullable<int> iDSV, Nullable<int> ky, string namHoc)
         {
@@ -56,6 +56,23 @@ namespace TSVID_API.Models
                 new ObjectParameter("IDSV", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getBangDiemAll_Result>("getBangDiemAll", iDSVParameter);
+        }
+    
+        public virtual ObjectResult<getlichhoc_Result> getlichhoc(string tuan, Nullable<int> idsv, string nam)
+        {
+            var tuanParameter = tuan != null ?
+                new ObjectParameter("tuan", tuan) :
+                new ObjectParameter("tuan", typeof(string));
+    
+            var idsvParameter = idsv.HasValue ?
+                new ObjectParameter("idsv", idsv) :
+                new ObjectParameter("idsv", typeof(int));
+    
+            var namParameter = nam != null ?
+                new ObjectParameter("nam", nam) :
+                new ObjectParameter("nam", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getlichhoc_Result>("getlichhoc", tuanParameter, idsvParameter, namParameter);
         }
     }
 }

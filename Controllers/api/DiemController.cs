@@ -10,7 +10,8 @@ namespace TSVID_API.Controllers.api
 {
     public class DiemController : ApiController
     {
-        DBContext db = new DBContext();
+        TSVIDEntities db =new TSVIDEntities();
+       
         [HttpGet]
         [Route("api/Diems/GetDiem")]
         public IEnumerable<getBangDiem_Result> GetBangDiem(int idSV,int ky,string nam)

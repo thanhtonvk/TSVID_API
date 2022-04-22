@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="TSVIDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BangDiem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDSV" Type="Int32" Nullable="false" />
+    <Property Name="IDHP" Type="Int32" Nullable="false" />
+    <Property Name="LoaiDiem" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Diem" Type="Double" />
+    <Property Name="ThoiGian" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
   <EntityType Name="HocPhan">
     <Key>
       <PropertyRef Name="ID" />
@@ -43,11 +55,11 @@
     <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Status" Type="Boolean" />
   </EntityType>
-  <EntityContainer Name="DBContext" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="TSVIDEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BangDiems" EntityType="Self.BangDiem" />
     <EntitySet Name="HocPhans" EntityType="Self.HocPhan" />
     <EntitySet Name="LichHocs" EntityType="Self.LichHoc" />
     <EntitySet Name="SinhViens" EntityType="Self.SinhVien" />
-    <EntitySet Name="BangDiems" EntityType="TSVIDModel.BangDiem" />
     <FunctionImport Name="getBangDiem" ReturnType="Collection(TSVIDModel.getBangDiem_Result)">
       <Parameter Name="IDSV" Mode="In" Type="Int32" />
       <Parameter Name="Ky" Mode="In" Type="Int32" />
@@ -56,19 +68,12 @@
     <FunctionImport Name="getBangDiemAll" ReturnType="Collection(TSVIDModel.getBangDiemAll_Result)">
       <Parameter Name="IDSV" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="getlichhoc" ReturnType="Collection(TSVIDModel.getlichhoc_Result)">
+      <Parameter Name="tuan" Mode="In" Type="String" />
+      <Parameter Name="idsv" Mode="In" Type="Int32" />
+      <Parameter Name="nam" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
-  <EntityType Name="BangDiem">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IDSV" Type="Int32" Nullable="false" />
-    <Property Name="IDHP" Type="Int32" Nullable="false" />
-    <Property Name="LoaiDiem" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Diem" Type="Double" />
-    <Property Name="ThoiGian" Type="DateTime" Precision="0" />
-    <Property Name="Status" Type="Boolean" />
-  </EntityType>
   <ComplexType Name="getBangDiem_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="TenHocPhan" Nullable="true" MaxLength="50" />
@@ -85,6 +90,16 @@
     <Property Type="Int32" Name="HeSo" Nullable="true" />
     <Property Type="Double" Name="Diem" Nullable="true" />
     <Property Type="Int32" Name="Ky" Nullable="true" />
+    <Property Type="String" Name="NamHoc" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="getlichhoc_Result">
+    <Property Type="String" Name="Ngay" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Thu" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Tiet" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ThoiGian" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="TenHocPhan" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Phong" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="GiaoVien" Nullable="true" MaxLength="30" />
     <Property Type="String" Name="NamHoc" Nullable="true" MaxLength="10" />
   </ComplexType>
 </Schema>

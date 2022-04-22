@@ -8,7 +8,7 @@ namespace TSVID_API.api.Controllers
 {
     public class HocPhansController:ApiController
     {
-        private DBContext db = new DBContext();
+        private TSVIDEntities db = new TSVIDEntities();
         [Route("api/HocPhans/GetHocPhan")]
         public IEnumerable<HocPhan> GetHocPhans(int idSV)
         {

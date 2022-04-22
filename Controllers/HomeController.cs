@@ -9,7 +9,7 @@ namespace TSVID_API.Controllers
 {
     public class HomeController : Controller
     {
-        DBContext db = new DBContext();
+        TSVIDEntities db = new TSVIDEntities();
         public ActionResult Index()
         {
             return View(db.SinhViens);

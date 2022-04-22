@@ -1,6 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="TSVIDModelStoreContainer" CdmEntityContainer="DBContext">
+  <EntityContainerMapping StorageEntityContainer="TSVIDModelStoreContainer" CdmEntityContainer="TSVIDEntities">
+    <EntitySetMapping Name="BangDiems">
+      <EntityTypeMapping TypeName="TSVIDModel.BangDiem">
+        <MappingFragment StoreEntitySet="BangDiem">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDSV" ColumnName="IDSV" />
+          <ScalarProperty Name="IDHP" ColumnName="IDHP" />
+          <ScalarProperty Name="LoaiDiem" ColumnName="LoaiDiem" />
+          <ScalarProperty Name="Diem" ColumnName="Diem" />
+          <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="HocPhans">
       <EntityTypeMapping TypeName="TSVIDModel.HocPhan">
         <MappingFragment StoreEntitySet="HocPhan">
@@ -47,19 +60,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="BangDiems">
-      <EntityTypeMapping TypeName="TSVIDModel.BangDiem">
-        <MappingFragment StoreEntitySet="BangDiem">
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
-          <ScalarProperty Name="Diem" ColumnName="Diem" />
-          <ScalarProperty Name="LoaiDiem" ColumnName="LoaiDiem" />
-          <ScalarProperty Name="IDHP" ColumnName="IDHP" />
-          <ScalarProperty Name="IDSV" ColumnName="IDSV" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="getBangDiem" FunctionName="TSVIDModel.Store.getBangDiem">
       <ResultMapping>
         <ComplexTypeMapping TypeName="TSVIDModel.getBangDiem_Result">
@@ -82,6 +82,20 @@
           <ScalarProperty Name="HeSo" ColumnName="HeSo" />
           <ScalarProperty Name="Diem" ColumnName="Diem" />
           <ScalarProperty Name="Ky" ColumnName="Ky" />
+          <ScalarProperty Name="NamHoc" ColumnName="NamHoc" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getlichhoc" FunctionName="TSVIDModel.Store.getlichhoc">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TSVIDModel.getlichhoc_Result">
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="Thu" ColumnName="Thu" />
+          <ScalarProperty Name="Tiet" ColumnName="Tiet" />
+          <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+          <ScalarProperty Name="TenHocPhan" ColumnName="TenHocPhan" />
+          <ScalarProperty Name="Phong" ColumnName="Phong" />
+          <ScalarProperty Name="GiaoVien" ColumnName="GiaoVien" />
           <ScalarProperty Name="NamHoc" ColumnName="NamHoc" />
         </ComplexTypeMapping>
       </ResultMapping>
